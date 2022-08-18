@@ -1,6 +1,7 @@
 package com.dupenghao.mybatis.aop;
 
 import com.dupenghao.mybatis.commans.AbstractPOJO;
+import com.dupenghao.util.ShowUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -30,6 +31,7 @@ public class CheckIdAOP {
     @Before("checkIdPoint()")
     public void before(JoinPoint joinPoint){
         Object[] args = joinPoint.getArgs();
+        ShowUtil.showArray(args);
         System.out.println("args length:"+args.length);
         AbstractPOJO param = (AbstractPOJO) args[0];
         log.info("param:");
