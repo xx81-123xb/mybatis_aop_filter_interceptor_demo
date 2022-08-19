@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url:
-    type:
-    username:
-    password:
+    db2:
+      jdbc-url: jdbc:mysql://localhost:3306/test_2?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: SHENLAN@2016
