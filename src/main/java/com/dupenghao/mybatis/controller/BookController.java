@@ -5,10 +5,7 @@ import com.dupenghao.mybatis.pojo.Book;
 import com.dupenghao.mybatis.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by 杜鹏豪 on 2022/8/9.
@@ -22,10 +19,14 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("save")
-    public Result save(@RequestBody Book book){
-        log.info("book:{}",book);
+    public Result save(@RequestBody Book book) {
+        log.info("book:{}", book);
         bookService.save(book);
         return Result.getSuccess(book);
     }
 
+    @GetMapping("/getList")
+    public Result getList() {
+        return Result.getSuccess(bookService.getList());
+    }
 }
